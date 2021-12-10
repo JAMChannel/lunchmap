@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :shops
   resources :categories
   root 'welcome#index'
   get 'welcome/index'
