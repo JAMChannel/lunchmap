@@ -2,6 +2,12 @@
 
 <h1>Shops</h1>
 
+<%= form_with(url:shops_path, local: true, method: :get) do |form| %>
+  <%= form.label :search %>
+  <%= form.text_field :search %>
+  <%= form.submit 'Search', name: nil %><%= link_to 'Clear', shops_path %>
+<% end %>
+
 <table>
   <thead>
     <tr>
@@ -15,7 +21,7 @@
   <tbody>
     <% @shops.each do |shop| %>
       <tr>
-        <td><%= shop.category_id %></td>
+        <td><%= shop.category.name %></td>
         <td><%= shop.name %></td>
         <td><%= shop.address %></td>
         <td><%= link_to 'Show', shop %></td>
@@ -28,4 +34,4 @@
 
 <br>
 
-<%= link_to 'New Shop', new_shop_path %>
+<%= link_to 'New Shop', new_shop_path %> <%= link_to 'Show Categories', categories_path %>
